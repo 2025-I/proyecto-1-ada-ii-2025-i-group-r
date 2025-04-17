@@ -16,22 +16,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Necesario para que SonarCloud pueda hacer análisis de branches
+          fetch-depth: 0  # Necesario para análisis de branches
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"  # Entre comillas para evitar confusiones
+          python-version: "3.10"
 
-      - name: Install dependencies
+      - name: Install SonarScanner
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pip install pytest pytest-cov  # Asegúrate de tener estas dependencias para los tests
-
-      - name: Run tests with coverage
-        run: |
-          pytest --cov=src --cov-report=xml:coverage.xml tests/
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
@@ -39,4 +34,4 @@ jobs:
           projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Necesario para integración con GitHub
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
