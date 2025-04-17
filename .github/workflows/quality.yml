@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Necesario para análisis completo
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -33,7 +33,9 @@ jobs:
           projectBaseDir: .
           args: >
             -Dsonar.ci=true
+            -Dsonar.analysis.ci=true
             -Dsonar.scm.disabled=true
+            -Dsonar.qualitygate.wait=true
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
