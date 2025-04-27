@@ -1,7 +1,4 @@
-import re
 from src.palindrome.utils import normalizar_cadena
-from itertools import combinations
-
 
 def es_palindromo(s):
     return s == s[::-1]
@@ -11,18 +8,15 @@ def encontrar_palindromo_fuerza_bruta(s):
     if n == 0:
         return ""
     
-    max_palindromo = ""
+    max_palindromo = s[0] 
 
-    for length in range(n, 0, -1):
-        for indices in combinations(range(n), length):
-            subseq = ''.join(s[i] for i in sorted(indices))
-            if es_palindromo(subseq):
-                if len(subseq) > len(max_palindromo):
-                    max_palindromo = subseq
-        if max_palindromo:
-            break
+    for i in range(n):
+        for j in range(i + 1, n + 1):
+            subcadena = s[i:j]
+            if es_palindromo(subcadena) and len(subcadena) > len(max_palindromo):
+                max_palindromo = subcadena
     
-    return max_palindromo if max_palindromo else s[0]
+    return max_palindromo
 
 def resolver(cadena):
     cadena_procesada = normalizar_cadena(cadena)

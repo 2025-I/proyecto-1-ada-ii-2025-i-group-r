@@ -1,8 +1,8 @@
 from tkinter import Tk, Button, filedialog
 
 #from src.palindrome.dynamic import resolver
-from src.palindrome.greedy import resolver
-#from src.palindrome.brute_force import resolver
+#from src.palindrome.greedy import resolver
+from src.palindrome.brute_force import resolver
 
 
 def procesar_lineas(lines):
