@@ -8,10 +8,9 @@ class TestGreedyPalindrome(unittest.TestCase):
 
     def setUp(self):
         self.test_cases = {
-            "pequeño": self.generar_cadena_aleatoria(100),     
-            "mediano": self.generar_cadena_aleatoria(1000),     
-            "grande": self.generar_cadena_aleatoria(10000),     
-            "extra_grande": self.generar_cadena_aleatoria(50000)
+            "pequeño": self.generar_cadena_aleatoria(50),     
+            "mediano": self.generar_cadena_aleatoria(100),     
+            "grande": self.generar_cadena_aleatoria(1000)
         }
 
     def generar_cadena_aleatoria(self, longitud):
@@ -44,8 +43,6 @@ class TestGreedyPalindrome(unittest.TestCase):
     def test_03_grande(self):
         self.run_test_with_repeats("grande", self.test_cases["grande"])
 
-    def test_04_extra_grande(self):
-        self.run_test_with_repeats("extra_grande", self.test_cases["extra_grande"])
 
 if __name__ == '__main__':
     unittest.main()

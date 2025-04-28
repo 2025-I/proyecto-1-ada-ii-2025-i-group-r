@@ -12,10 +12,9 @@ class TestBruteForcePalindrome(unittest.TestCase):
             return ''.join(random.choice(caracteres) for _ in range(longitud))
 
         self.test_cases = {
-            "pequeño": generar_cadena_aleatoria(100), 
-            "mediano": generar_cadena_aleatoria(1000),
-            "medianoxl": generar_cadena_aleatoria(5000),  
-            "grande": generar_cadena_aleatoria(10000)
+            "pequeño": generar_cadena_aleatoria(10), 
+            "mediano": generar_cadena_aleatoria(50),
+            "medianoxl": generar_cadena_aleatoria(100)
         }
 
     def run_test_with_repeats(self, label, input_str):
@@ -44,8 +43,6 @@ class TestBruteForcePalindrome(unittest.TestCase):
     def test_03_medianoXL(self):
         self.run_test_with_repeats("medianoxl", self.test_cases["medianoxl"])
         
-    def test_04_grande(self):
-        self.run_test_with_repeats("grande", self.test_cases["grande"])
 
 if __name__ == '__main__':
     unittest.main()

@@ -8,7 +8,7 @@ def encontrar_palindromo_fuerza_bruta(s):
     if n == 0:
         return ""
     
-    max_palindromo = s[0] 
+    max_palindromo = s[ 0]
 
     for i in range(n):
         for j in range(i + 1, n + 1):
