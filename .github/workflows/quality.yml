@@ -16,6 +16,7 @@ jobs:
       issues: write
       pull-requests: write
       security-events: write
+      checks: write
 
     steps:
       - name: Checkout code
@@ -39,15 +40,25 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov=src --cov-report=xml:coverage.xml tests/
+          python -m pytest --cov=./src --cov-report=xml:./coverage.xml --cov-config=.coveragerc tests/
+          ls -la coverage.xml  # Verificar generación del reporte
+
+      - name: Fix coverage paths for SonarCloud
+        run: |
+          sed -i 's|<source>src</source>|<source>.</source>|g' coverage.xml
+          sed -i 's|filename="|filename="src/|g' coverage.xml
+          grep -E "source|filename" coverage.xml | head -n 10  # Verificar cambios
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
           projectBaseDir: .
           args: >
-            -Dsonar.ci=true
-            -Dsonar.scm.disabled=true
+            -Dsonar.working.directory=.scworkdir
+            -Dsonar.python.coverage.reportPaths=./coverage.xml
+            -Dsonar.python.coveragePlugin=cobertura
+            -Dsonar.sources=./src
+            -Dsonar.tests=./tests
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
