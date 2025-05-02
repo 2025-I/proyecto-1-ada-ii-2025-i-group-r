@@ -3,10 +3,9 @@ name: SonarCloud Analysis
 on:
   push:
     branches:
-      - pruebas
+      - main
   pull_request:
     types: [opened, synchronize, reopened]
-
 jobs:
   sonarcloud:
     name: SonarCloud
