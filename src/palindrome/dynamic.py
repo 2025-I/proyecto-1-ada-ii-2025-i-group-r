@@ -1,7 +1,6 @@
-import re
 from src.palindrome.utils import normalizar_cadena
 
-def encontrar_palindromo_largo(s):
+def encontrar_palindromo_dinamica(s):
     n = len(s)
     if n == 0:
         return ""
@@ -33,4 +32,4 @@ def encontrar_palindromo_largo(s):
 
 def resolver(cadena):
     cadena_procesada = normalizar_cadena(cadena)
-    return encontrar_palindromo_largo(cadena_procesada)
+    return encontrar_palindromo_dinamica(cadena_procesada)

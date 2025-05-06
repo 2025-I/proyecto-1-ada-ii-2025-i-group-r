@@ -1,4 +1,3 @@
-import re
 from src.palindrome.utils import normalizar_cadena
 
 def encontrar_palindromo_voraz(s):

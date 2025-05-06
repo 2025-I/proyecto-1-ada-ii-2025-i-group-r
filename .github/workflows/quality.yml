@@ -45,7 +45,7 @@ jobs:
       - name: Fix coverage paths for SonarCloud
         run: |
           sed -i 's|<source>src</source>|<source>.</source>|g' coverage.xml
-          sed -i 's|filename="|filename="src/|g' coverage.xml
+          sed -i 's|filename="|filename="./src/|g' coverage.xml
           grep -E "source|filename" coverage.xml | head -n 10  # Verificar cambios
 
       - name: SonarCloud Scan
