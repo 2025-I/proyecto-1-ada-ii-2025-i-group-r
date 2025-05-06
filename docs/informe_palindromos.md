@@ -10,6 +10,7 @@ Este proyecto aborda el problema de encontrar la subsecuencia palindrómica más
 
 Además de la implementación de estos algoritmos, se realizaron pruebas de rendimiento con diferentes tamaños de entrada, y se compararon las complejidades teóricas y experimentales.
 
+---
 
 ## 2. Formalización matemática
 
@@ -33,6 +34,7 @@ El objetivo es encontrar la subsecuencia palindrómica más larga, es decir:
 
 donde `𝒫` es el conjunto de todas las subsecuencias palindrómicas de `S′`.
 
+---
 
 ## 3. Algoritmos implementados
 
@@ -67,6 +69,7 @@ Todos los algoritmos utilizan la función `normalizar_cadena` definida en `utils
 - Convierte la cadena a minúsculas
 - Elimina caracteres no alfanuméricos usando expresiones regulares importando la libreria `unidecode`
 
+---
 
 ## 4. Resultados experimentales
 
@@ -90,7 +93,7 @@ Tiempos promedio para tres tamaños de prueba:
 **Ejecucion test fuerza bruta**
 ![Fuerza_Bruta](Images/test%20brute%20force.png)
 
-
+---
 
 ### 4.2 Programación dinámica
 
@@ -106,7 +109,7 @@ Tiempos promedio para tres tamaños de prueba:
 **Ejecucion test dinamica**
 ![Dinámica](Images/test%20dynamic.png)
 
-
+---
 
 ### 4.3 Algoritmo voraz
 
@@ -121,6 +124,7 @@ Tiempos promedio para tres tamaños de prueba:
 **Ejecucion test voraz**
 ![Voraz](Images/test%20greedy.png)
 
+---
 
 ## 5. Análisis de complejidad computacional
 
@@ -128,7 +132,7 @@ Tiempos promedio para tres tamaños de prueba:
 
 **Descripción:** Se evalúan todas las posibles subcadenas del string normalizado y se verifica si cada una es palíndroma.
 
-- El número total de subcadenas posibles de una cadena de longitud \( n \) es \( \frac{n(n+1)}{2} \).
+- El número total de subcadenas posibles de una cadena de longitud `n` es `n(n + 1) / 2`.
 - Para cada subcadena se realiza una verificación de palíndromo, que toma \( O(k) \) tiempo, donde \( k \) es la longitud de la subcadena.
 - En el peor caso, la longitud media de las subcadenas es \( O(n) \), por lo tanto la verificación puede costar hasta \( O(n) \).
 
@@ -189,9 +193,12 @@ Los resultados experimentales coinciden con el análisis teórico:
 - La **programación dinámica** escala mejor, aunque para 40,000 caracteres toma más de 4 minutos.
 - El algoritmo **voraz** es extremadamente eficiente incluso con 50,000 caracteres (menos de 0.1 s), confirmando que su bajo uso de recursos lo hace muy atractivo en la práctica, aunque puede no encontrar el óptimo si se esperaran múltiples palíndromos de igual longitud.
 
-**Comparacion grafica tiempos de ejecucion**
-![Comparacion tiempos](Images/times.png)
 
+**Comparacion grafica tiempos de ejecucion**
+
+![Comparacion](Images/times.png)
+
+---
 
 ## 6. Conclusiones
 
