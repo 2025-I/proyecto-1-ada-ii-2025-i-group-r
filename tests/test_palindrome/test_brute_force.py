@@ -12,9 +12,9 @@ class TestBruteForcePalindrome(unittest.TestCase):
             return ''.join(random.choice(caracteres) for _ in range(longitud))
 
         self.test_cases = {
-            "pequeño": generar_cadena_aleatoria(10), 
-            "mediano": generar_cadena_aleatoria(50),
-            "medianoxl": generar_cadena_aleatoria(100)
+            "pequeño": generar_cadena_aleatoria(100), 
+            "mediano": generar_cadena_aleatoria(1000),
+            "medianoxl": generar_cadena_aleatoria(10000)
         }
 
     def run_test_with_repeats(self, label, input_str):

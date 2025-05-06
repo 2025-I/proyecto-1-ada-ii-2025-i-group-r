@@ -12,9 +12,10 @@ class TestDynamicPalindrome(unittest.TestCase):
             return ''.join(random.choice(caracteres) for _ in range(longitud))
 
         self.test_cases = {
-            "pequeño": generar_cadena_aleatoria(50),
-            "mediano": generar_cadena_aleatoria(100),
-            "grande": generar_cadena_aleatoria(1000)
+            "pequeño": generar_cadena_aleatoria(100),
+            "mediano": generar_cadena_aleatoria(1000),
+            "grande": generar_cadena_aleatoria(10000),
+            "extragrande": generar_cadena_aleatoria(40000)
         }
     
     def run_test_with_repeats(self, label, input_str):
@@ -42,6 +43,9 @@ class TestDynamicPalindrome(unittest.TestCase):
 
     def test_03_grande(self):
         self.run_test_with_repeats("grande", self.test_cases["grande"])
+        
+    def test_04_extragrande(self):
+        self.run_test_with_repeats("extragrande", self.test_cases["extragrande"])
         
 
 if __name__ == '__main__':

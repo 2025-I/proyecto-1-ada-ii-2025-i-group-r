@@ -18,10 +18,10 @@ def encontrar_palindromo_voraz(s):
         pal1 = expandir_desde_centro(i, i)
         pal2 = expandir_desde_centro(i, i+1)
 
-        longer = pal1 if len(pal1) > len(pal2) else pal2
+        mas_largo = pal1 if len(pal1) > len(pal2) else pal2
         
-        if len(longer) > len(max_palindromo):
-            max_palindromo = longer
+        if len(mas_largo) > len(max_palindromo):
+            max_palindromo = mas_largo
     
     return max_palindromo
 
