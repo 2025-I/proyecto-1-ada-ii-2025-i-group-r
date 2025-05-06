@@ -13,25 +13,25 @@ Además de la implementación de estos algoritmos, se realizaron pruebas de rend
 
 ## 2. Formalización matemática
 
-Dada una cadena \( S = s_1s_2\ldots s_n \), se define una función de normalización \( \phi \) tal que:
+Dada una cadena `S = s₁s₂...sₙ`, se define una función de normalización `ϕ` tal que:
 
-- \( \phi(c) = \text{minúscula}(c) \) si \( c \) es alfanumérico.
-- \( \phi(c) = \varepsilon \) en otro caso (caracteres no alfanuméricos se eliminan).
+- `ϕ(c) = minúscula(c)` si `c` es alfanumérico.
+- `ϕ(c) = ε` (cadena vacía) en otro caso.
 
-Entonces, la cadena normalizada \( S' = \phi(s_1)\phi(s_2)\ldots\phi(s_n) \).
+Entonces, la cadena normalizada es:
 
-Una subsecuencia palindrómica \( P = p_1p_2\ldots p_k \) de \( S' \) cumple:
+`S′ = ϕ(s₁)ϕ(s₂)...ϕ(sₙ)`
 
-- \( P = \text{reverse}(P) \)
-- Existe \( 1 \leq i_1 < i_2 < \ldots < i_k \leq n \) tal que \( p_j = s'_{i_j} \)
+Una subsecuencia palindrómica `P = p₁p₂...pₖ` de `S′` cumple:
+
+- `P = reverse(P)`
+- Existe una secuencia de índices `1 ≤ i₁ < i₂ < ... < iₖ ≤ n` tal que `pⱼ = s′ᵢⱼ` para `j = 1...k`
 
 El objetivo es encontrar la subsecuencia palindrómica más larga, es decir:
 
-\[
-\underset{P \in \mathcal{P}}{\arg\max} |P|
-\]
+`arg max_{P ∈ 𝒫} |P|`
 
-donde \( \mathcal{P} \) es el conjunto de todas las subsecuencias palindrómicas de \( S' \).
+donde `𝒫` es el conjunto de todas las subsecuencias palindrómicas de `S′`.
 
 
 ## 3. Algoritmos implementados
@@ -86,6 +86,8 @@ Tiempos promedio para tres tamaños de prueba:
 | 1000        | 0.2928              |
 | 10000       | 180.5581            |
 
+
+**Ejecucion test fuerza bruta**
 ![Fuerza_Bruta](Images/test%20brute%20force.png)
 
 
@@ -100,6 +102,8 @@ Tiempos promedio para tres tamaños de prueba:
 | 40000       | 260.6721            |
 | 50000       | Mi pc no lo soporta |
 
+
+**Ejecucion test dinamica**
 ![Dinámica](Images/test%20dynamic.png)
 
 
@@ -113,6 +117,8 @@ Tiempos promedio para tres tamaños de prueba:
 | 10000       | 0.0135              |
 | 50000       | 0.0601              |
 
+
+**Ejecucion test voraz**
 ![Voraz](Images/test%20greedy.png)
 
 
@@ -183,6 +189,7 @@ Los resultados experimentales coinciden con el análisis teórico:
 - La **programación dinámica** escala mejor, aunque para 40,000 caracteres toma más de 4 minutos.
 - El algoritmo **voraz** es extremadamente eficiente incluso con 50,000 caracteres (menos de 0.1 s), confirmando que su bajo uso de recursos lo hace muy atractivo en la práctica, aunque puede no encontrar el óptimo si se esperaran múltiples palíndromos de igual longitud.
 
+**Comparacion grafica tiempos de ejecucion**
 ![Comparacion tiempos](Images/times.png)
 
 
