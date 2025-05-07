@@ -3,7 +3,7 @@
 
 ## Integrantes
 Jairo Andres Gomez Cardona | 2259332
-
+Manuel Alexander Serna Jaraba | 2259345
 
 ## Descripción del taller
 
