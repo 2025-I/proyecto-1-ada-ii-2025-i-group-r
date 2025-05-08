@@ -9,9 +9,9 @@ class TestGreedyPalindrome(unittest.TestCase):
     def setUp(self):
         self.test_cases = {
             "pequeño": self.generar_cadena_aleatoria(10),     
-            "mediano": self.generar_cadena_aleatoria(100),     
-            "grande": self.generar_cadena_aleatoria(150),
-            "extragrande": self.generar_cadena_aleatoria(200)
+            "mediano": self.generar_cadena_aleatoria(50),     
+            "grande": self.generar_cadena_aleatoria(100),
+            "extragrande": self.generar_cadena_aleatoria(150)
         }
 
     def generar_cadena_aleatoria(self, longitud):

@@ -5,24 +5,25 @@ def encontrar_palindromo_voraz(s):
     if n == 0:
         return ""
     
-    def expandir_desde_centro(left, right):
-        while left >= 0 and right < n and s[left] == s[right]:
-            left -= 1
-            right += 1
-        return s[left+1:right]
-    
-    max_palindromo = s[0]  
+    def expandir_desde_centro(left, rigth):
+        while left >= 0 and rigth < n and s[left] == s[rigth]:     
+            left -=1
+            rigth +=1
+            
+        return s[left+1:rigth]
+            
+    max_palindrome = s[0]
     
     for i in range(n):
         pal1 = expandir_desde_centro(i, i)
         pal2 = expandir_desde_centro(i, i+1)
-
+        
         mas_largo = pal1 if len(pal1) > len(pal2) else pal2
         
-        if len(mas_largo) > len(max_palindromo):
-            max_palindromo = mas_largo
+        if len(mas_largo) > len(max_palindrome):
+            max_palindrome = mas_largo
     
-    return max_palindromo
+    return max_palindrome
 
 def resolver(cadena):
     cadena_procesada = normalizar_cadena(cadena)
